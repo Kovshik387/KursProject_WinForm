@@ -1,23 +1,23 @@
 #include "Class.h"
+using namespace System;
 
 Admin::Admin()
 {
 	ifstream File(FILE_MAIN_NAME);	// конструктор ворует начальные данные
 	if (!File.is_open()) throw exception("File read error");
+	count = 0;
 	while (!File.eof()) {
 		string temp;	// временная переменная строчного типа
 		getline(File, temp);
 		this->admin_data.push_back(temp);
+		count++;
 	}
 	File.close();
 }
 
-void Admin::Print_Admin_data()
+std::vector<std::string> Admin::Print_Admin_data()
 {
-	for (int i = 0; i < this->admin_data.size(); i++)
-	{
-		this->admin_data[i];
-	}		
+	return admin_data;
 }
 
 //string Admin::GetPassword()

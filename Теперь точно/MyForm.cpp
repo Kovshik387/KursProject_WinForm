@@ -6,8 +6,8 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-[STAThreadAttribute]
-void main(array<String^>^ args)
+//[STAThreadAttribute]
+int main(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
@@ -17,7 +17,6 @@ void main(array<String^>^ args)
 
 System::Void Теперьточно::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	
 	Form::Hide();
 	MyForm1^ form1 = gcnew MyForm1();
 	form1->Show();

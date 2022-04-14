@@ -33,6 +33,7 @@ namespace Теперьточно {
 			{
 				delete components;
 			}
+			Application::Exit();
 		}
 	private: System::Windows::Forms::ColorDialog^ colorDialog1;
 	private: System::Windows::Forms::Button^ ALL;
@@ -50,6 +51,9 @@ namespace Теперьточно {
 	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ butbask;
+
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -68,6 +72,7 @@ namespace Теперьточно {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm2::typeid));
 			this->colorDialog1 = (gcnew System::Windows::Forms::ColorDialog());
 			this->ALL = (gcnew System::Windows::Forms::Button());
 			this->Shoes = (gcnew System::Windows::Forms::Button());
@@ -81,6 +86,8 @@ namespace Теперьточно {
 			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->butbask = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->BeginInit();
 			this->contextMenuStrip1->SuspendLayout();
@@ -105,7 +112,7 @@ namespace Теперьточно {
 			this->Shoes->Name = L"Shoes";
 			this->Shoes->Size = System::Drawing::Size(139, 37);
 			this->Shoes->TabIndex = 1;
-			this->Shoes->Text = L"Ботиночки";
+			this->Shoes->Text = L"Обувь";
 			this->Shoes->UseVisualStyleBackColor = true;
 			this->Shoes->Click += gcnew System::EventHandler(this, &MyForm2::Shoes_Click);
 			// 
@@ -216,11 +223,33 @@ namespace Теперьточно {
 			this->butbask->UseVisualStyleBackColor = true;
 			this->butbask->Click += gcnew System::EventHandler(this, &MyForm2::butbask_Click);
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(14, 451);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(139, 39);
+			this->button2->TabIndex = 7;
+			this->button2->Text = L"Оформить Заказ";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm2::button2_Click);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(14, 271);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(139, 37);
+			this->button1->TabIndex = 11;
+			this->button1->Text = L"Выход";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm2::button1_Click);
+			// 
 			// MyForm2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(771, 503);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->butbask);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->numericUpDown1);
@@ -232,10 +261,12 @@ namespace Теперьточно {
 			this->Controls->Add(this->groupBox1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Name = L"MyForm2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm2";
+			this->Text = L"Интернет Магазин Zamay";
+			this->Activated += gcnew System::EventHandler(this, &MyForm2::ALL_Click);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->EndInit();
 			this->contextMenuStrip1->ResumeLayout(false);
@@ -258,5 +289,7 @@ private: void ShowCloth();
 private: void ShowBask();
 private: System::Void butbask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Bask_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

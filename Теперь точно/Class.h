@@ -24,11 +24,13 @@ class Admin
 {
 public:
 	Admin();
-	void Print_Admin_data();
+	vector<string> Print_Admin_data();
 	string GetPassword() { return Password; };
+	int GetCount() { return count; }
 private:
 	string Password = "OOP1337";
 	vector <string> admin_data;
+	int count = 0;
 };
 
 class User
@@ -76,7 +78,7 @@ public:
 	int GetEnd()   { return end; }
 protected:
 	vector <string> basket_;
-	int count;
+	int count = 1;
 	int begin;
 	int end;
 };

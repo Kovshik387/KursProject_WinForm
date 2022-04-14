@@ -56,6 +56,7 @@ namespace Теперьточно {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm1::typeid));
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -65,8 +66,11 @@ namespace Теперьточно {
 			// 
 			// textBox1
 			// 
+			this->textBox1->Cursor = System::Windows::Forms::Cursors::Cross;
+			this->textBox1->HideSelection = false;
 			this->textBox1->Location = System::Drawing::Point(74, 88);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(111, 20);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm1::textBox1_TextChanged);
@@ -102,11 +106,15 @@ namespace Теперьточно {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(261, 185);
+			this->ClientSize = System::Drawing::Size(250, 236);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MaximumSize = System::Drawing::Size(266, 276);
+			this->MinimumSize = System::Drawing::Size(266, 275);
 			this->Name = L"MyForm1";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm1";
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -1,5 +1,5 @@
 #include "MyForm1.h"
-
+#include "MyForm3.h"
 
 System::Void Теперьточно::MyForm1::textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e)
 {
@@ -10,14 +10,13 @@ System::Void Теперьточно::MyForm1::button1_Click(System::Object^ sender, System:
 {
     if (textBox1->Text == "OOP1337")
     {
-        MyForm1::Hide();
-        MessageBox::Show("Ты админ");
-        Form::Hide();
+        MyForm3^ form3 = gcnew MyForm3();
+        MyForm1::Close();
+        form3->Show();
     }
     else
     {
-        MessageBox::Show("Ты не админ\nПшёл Нахуй");
-        Application::Exit();
+        MessageBox::Show("Неверный пароль");
     }
     return System::Void();
 }

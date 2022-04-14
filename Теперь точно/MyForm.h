@@ -33,6 +33,7 @@ namespace Теперьточно {
 			{
 				delete components;
 			}
+			Application::Exit();
 		}
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ Admin;
@@ -87,7 +88,7 @@ namespace Теперьточно {
 			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
 			this->label1->Location = System::Drawing::Point(50, 46);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(181, 20);
+			this->label1->Size = System::Drawing::Size(181, 21);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Интернет-Магазин Zamay";
 			// 
@@ -95,15 +96,17 @@ namespace Теперьточно {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
+			this->ClientSize = System::Drawing::Size(277, 255);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Admin);
 			this->Controls->Add(this->button1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm";
+			this->Text = L"Интернет магазин Zamay";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 
