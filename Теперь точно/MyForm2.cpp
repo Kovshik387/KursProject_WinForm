@@ -128,7 +128,8 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 		Object_ object;
 		object.item();
 		vector<string> ve = object.Print();
-		int ask = Convert::ToInt16(numericUpDown1->Text);
+		String^ a = dataGridData->CurrentRow->Index.ToString();
+		int ask = Convert::ToInt16(a) + 1;	// Convert::ToInt16(numericUpDown1->Text); //работает
 		if ((ask > object.GetCount()) || (ve[0] == "")) { MessageBox::Show("Индекс не принадлежит диапазону", "упс"); }
 		else {
 			object.Basket(ask);
@@ -179,13 +180,9 @@ void Pur()
 	Thread::Sleep(3000);
 }
 
-System::Void Теперьточно::MyForm2::puc_Click(System::Object^ sender, System::EventArgs^ e)
-{
-
-}
-
 void Теперьточно::MyForm2::HeaderA()
 {
+	dataGridData->TopLeftHeaderCell->Value = "###";
 	DataGridViewTextBoxColumn^ c1 = gcnew DataGridViewTextBoxColumn();
 	c1->Name = "Список";
 	c1->HeaderText = "Тип";
@@ -267,7 +264,6 @@ void Теперьточно::MyForm2::HeaderH()
 	c8->HeaderText = "Цвет";
 	c8->Width = 150;
 	dataGridData->Columns->Add(c8);
-
 	dataGridData->AutoResizeColumn(0);
 }
 
@@ -278,20 +274,8 @@ void Теперьточно::MyForm2::HeaderI()
 	c9->HeaderText = "Количество";
 	c9->Width = 150;
 	dataGridData->Columns->Add(c9);
-
 	dataGridData->AutoResizeColumn(0);
 }
-
-//void Теперьточно::MyForm2::HeaderE()
-//{
-//	DataGridViewTextBoxColumn^ c5 = gcnew DataGridViewTextBoxColumn();
-//	c5->Name = "Список";
-//	c5->HeaderText = "Корзина Ваших товаров";
-//	c5->Width = 150;
-//	dataGridData->Columns->Add(c5);
-//	dataGridData->AutoResizeColumn(0);
-//}
-//end new
 
 void Теперьточно::MyForm2::ShowCloth()
 {

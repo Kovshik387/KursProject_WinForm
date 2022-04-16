@@ -48,7 +48,7 @@ namespace Òåïåðüòî÷íî {
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ îÏðîãðàììåToolStripMenuItem;
 	private: System::Windows::Forms::Button^ Bask;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ butbask;
 
@@ -84,7 +84,6 @@ namespace Òåïåðüòî÷íî {
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Bask = (gcnew System::Windows::Forms::Button());
-			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->butbask = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -92,7 +91,6 @@ namespace Òåïåðüòî÷íî {
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->BeginInit();
 			this->contextMenuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// ALL
@@ -186,25 +184,14 @@ namespace Òåïåðüòî÷íî {
 			// 
 			// Bask
 			// 
-			this->Bask->Location = System::Drawing::Point(191, 600);
+			this->Bask->Location = System::Drawing::Point(14, 316);
 			this->Bask->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Bask->Name = L"Bask";
-			this->Bask->Size = System::Drawing::Size(178, 39);
+			this->Bask->Size = System::Drawing::Size(139, 39);
 			this->Bask->TabIndex = 7;
 			this->Bask->Text = L"Äîáàâèòü â êîðçèíó";
 			this->Bask->UseVisualStyleBackColor = true;
 			this->Bask->Click += gcnew System::EventHandler(this, &MyForm2::Bask_Click);
-			// 
-			// numericUpDown1
-			// 
-			this->numericUpDown1->Location = System::Drawing::Point(377, 616);
-			this->numericUpDown1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
-			this->numericUpDown1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
-			this->numericUpDown1->Name = L"numericUpDown1";
-			this->numericUpDown1->Size = System::Drawing::Size(178, 21);
-			this->numericUpDown1->TabIndex = 8;
-			this->numericUpDown1->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
 			// 
 			// label1
 			// 
@@ -254,7 +241,6 @@ namespace Òåïåðüòî÷íî {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->butbask);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->Cloth);
 			this->Controls->Add(this->Bask);
 			this->Controls->Add(this->Pants);
@@ -274,7 +260,6 @@ namespace Òåïåðüòî÷íî {
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->EndInit();
 			this->contextMenuStrip1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -303,6 +288,5 @@ private: System::Void butbask_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void Bask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void puc_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

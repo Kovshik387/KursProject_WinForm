@@ -120,23 +120,6 @@ std::vector<string> Object_::Print()
 	return data;
 }
 
-//std::vector<string> Object_::PrintBasket()
-//{
-//	ifstream File_Basket(FILE_BASKET_NAME); // чтение из файла Basket.txt
-//	if (!File_Basket.is_open()) throw exception("File read error");
-//	int i = 0; string temp;
-//	while (!File_Basket.eof()) {
-//		getline(File_Basket, temp);
-//		basket_.push_back(temp);
-//		cout << basket_[i] << endl; i++;
-//	}
-//}
-
-//int Object::GetCount()
-//{
-//	return count;
-//}
-
 Shoes_::Shoes_()
 {
 	bool temp = true;
