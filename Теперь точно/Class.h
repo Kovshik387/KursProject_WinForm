@@ -16,9 +16,23 @@
 #define SEARCH_SHOES R"((Shoes)\s\w{2,10}\s\w{3,5}\s\w{3,15}\s\w{3,15}\s\d{1,2}\s\d{2,6}\s\w{3,7}\s\d{1})" // –егул€рное выражение дл€ группы Shoes
 #define SEARCH_PANTS R"((Pants)\s\w{2,10}\s\w{3,5}\s\w{3,15}\s\w{3,15}\s\d{1,2}\s\d{2,6}\s\w{3,7}\s\d{1})" // –егул€рное выражение дл€ группы Pants
 #define SEARCH_CLOTH R"((Cloth)\s\w{2,10}\s\w{3,5}\s\w{3,15}\s\w{3,15}\s\d{1,2}\s\d{2,6}\s\w{3,7}\s\d{1})" // –егул€рное выражение дл€ группы Cloth
-
+#define BITSTRING R"((\w{2,15}\s)|(\d{1})|(\d{2,15}))"
+#define SPACE R"(^\s)"
 using namespace std;
 
+
+struct Ones
+{
+	string Category = "";
+	string Type		= "";
+	string Gender	= "";
+	string Brand	= "";
+	string Model	= "";
+	string Size		= "";
+	string Price	= "";
+	string Color	= "";
+	string Count	= "";
+};
 
 class Admin
 {
@@ -36,14 +50,14 @@ private:
 class User
 {
 public:
-	/*void Purchase();*/
+	void Purchase();
 	void SetDay(int day);
 	int GetDay() { return day; }
+	/*int SetPurchaseDay(int purchday);*/
 private:
-	/*static*/ int day;
+	int day;
+	static int PurchaseDay;
 };
-
-//int User::day = 0;
 
 class Builder
 {
@@ -94,6 +108,8 @@ public:
 protected:
 	vector <string> Shoes_Data;
 	int count = 0;
+	int begin = 0;
+	int end = 0;
 };
 
 class Pants_ : public Object_
@@ -120,4 +136,4 @@ protected:
 	vector <string> Cloth_Data;
 	int count = 0;
 };
-
+std::vector<Ones> ReturnCell(std::vector<std::string> s, int count);

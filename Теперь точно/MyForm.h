@@ -62,7 +62,7 @@ namespace Теперьточно {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(81, 139);
+			this->button1->Location = System::Drawing::Point(88, 113);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(111, 37);
 			this->button1->TabIndex = 0;
@@ -72,23 +72,23 @@ namespace Теперьточно {
 			// 
 			// Admin
 			// 
-			this->Admin->Location = System::Drawing::Point(81, 96);
+			this->Admin->Location = System::Drawing::Point(88, 156);
 			this->Admin->Name = L"Admin";
 			this->Admin->Size = System::Drawing::Size(111, 37);
 			this->Admin->TabIndex = 1;
-			this->Admin->Text = L"вход на обычном уровне бытия";
+			this->Admin->Text = L"Войти как пользователь";
 			this->Admin->UseVisualStyleBackColor = true;
 			this->Admin->Click += gcnew System::EventHandler(this, &MyForm::Admin_Click);
 			// 
 			// label1
 			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->ForeColor = System::Drawing::SystemColors::ActiveCaption;
+			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
-			this->label1->Location = System::Drawing::Point(50, 46);
+			this->label1->Location = System::Drawing::Point(-4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(181, 21);
+			this->label1->Size = System::Drawing::Size(294, 274);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Интернет-Магазин Zamay";
 			// 
@@ -97,10 +97,10 @@ namespace Теперьточно {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->ClientSize = System::Drawing::Size(277, 255);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(284, 261);
 			this->Controls->Add(this->Admin);
 			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;

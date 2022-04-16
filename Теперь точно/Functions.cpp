@@ -9,10 +9,6 @@ void DataAll()
 	int ask = 0; // рофл чЄ
 	Object_ object;
 	object.item(); object.Print();
-	if (ask > object.GetCount() && ask != '0')
-	{
-		object.Basket(ask);
-	}
 }
 
 void DataShoes()
@@ -20,10 +16,6 @@ void DataShoes()
 	int ask = 0;
 	Object_ object;
 	Shoes_ shoes; shoes.Print();
-	//if (ask > shoes.GetCount() && ask <= 0)
-	//{
-	//	shoes.Basket(ask);
-	//}
 }
 
 void DataPants()
@@ -31,10 +23,6 @@ void DataPants()
 	int ask = 0;
 	Object_ object;
 	Pants_ pants; pants.Print();
-	if (ask > pants.GetCount() && ask <= 0)
-	{
-		pants.Basket(ask);
-	}
 }
 
 void DataCloth()
@@ -42,10 +30,6 @@ void DataCloth()
 	int ask = 0;
 	Object_ object;
 	Cloth_ cloth; cloth.Print();
-	if (ask > cloth.GetCount() && ask <= 0)
-	{
-		cloth.Basket(ask);
-	}
 }
 
 void SetData()	// ‘ункци€ возвращение данных в исходный вид
@@ -82,18 +66,80 @@ void ReGroupData()
 	}
 }
 
-std::string Convert_String_To_string(System::String^ s, std::string& os) // из String в std::string
+std::string Stos(System::String^ s) // из String в std::string
 {
-	using namespace Runtime::InteropServices;
+	using namespace System::Runtime::InteropServices;
 	const char* chars =
 		(const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
-
+	std::string os(chars);
 	return os;
 }
+
+//void travel()
+//{
+//	srand(time(NULL));
+//	User user;
+//	int temp_day;
+//	temp_day = 1 + rand() % 15;
+//	user.Purchase();
+//}
 
 System::String^ Convert_string_To_String(std::string& os) // из std::string в String
 {
 	System::String^ s;
 	s = gcnew System::String(os.c_str());
 	return s;
+}
+
+vector<Ones> ReturnCell(vector<string> s, int count)
+{
+	Ones ones;
+	vector <Ones> ones_v;
+	regex reg(BITSTRING); // регул€рка
+	smatch cat; // регул€рка
+	for (int i = 0; i < count; i++)
+	{
+		ones_v.push_back(ones);
+		int iterator = 0;
+
+		// ‘ункци€
+		while (regex_search(s[i], cat, reg))
+		{
+			switch (iterator)
+			{
+			case 0:
+				ones_v[i].Category = cat.str();
+				break;
+			case 1:
+				ones_v[i].Type = cat.str();
+				break;
+			case 2:
+				ones_v[i].Gender = cat.str();
+				break;
+			case 3:
+				ones_v[i].Brand = cat.str();
+				break;
+			case 4:
+				ones_v[i].Model = cat.str();
+				break;
+			case 5:
+				ones_v[i].Size = cat.str();
+				break;
+			case 6:
+				ones_v[i].Price = cat.str();
+				break;
+			case 7:
+				ones_v[i].Color = cat.str();
+				break;
+			case 8:
+				ones_v[i].Count = cat.str();
+				break;
+			default:
+				break;
+			}
+			s[i] = cat.suffix();
+			iterator++;
+		}
+	}
+	return ones_v;
 }

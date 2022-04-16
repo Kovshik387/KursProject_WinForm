@@ -1,3 +1,4 @@
+Shoes Sneakers Man Adidas Ozweego 43 9900 black 2
 Shoes Sneakers Woman Adidas Ozelia 39 15000 white 5
 Shoes Sneakers Man CHnCH Kunkka 45 99999 blue 1
 Shoes Sneakers Man Balenciaga TripleS 44 40000 white 1
@@ -33,3 +34,6 @@ Shoes Sneakers Man Over Hype 44 20000 black 2
 Shoes Boots Woman LOF LIFI 34 9999 black 2
 Shoes Sneakers Man Adidas CURT 43 99200 grey 2
 Shoes Sneakers Woman dwadwa dwadwad 2 1 white 6
+Shoes Boots Man dwada dwadwa 1 1 white 1
+Shoes Boots Man 1 1 1 1 white 1
+Cloth Hoodie Man 1 1 1 1 blue 1

@@ -54,6 +54,7 @@ namespace Теперьточно {
 
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
+
 	private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -96,6 +97,7 @@ namespace Теперьточно {
 			// 
 			// ALL
 			// 
+			this->ALL->CausesValidation = false;
 			this->ALL->Location = System::Drawing::Point(14, 53);
 			this->ALL->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->ALL->Name = L"ALL";
@@ -143,11 +145,11 @@ namespace Теперьточно {
 			this->groupBox1->Controls->Add(this->dataGridData);
 			this->groupBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->groupBox1->Location = System::Drawing::Point(184, 14);
+			this->groupBox1->Location = System::Drawing::Point(191, 12);
 			this->groupBox1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Padding = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->groupBox1->Size = System::Drawing::Size(566, 435);
+			this->groupBox1->Size = System::Drawing::Size(1013, 582);
 			this->groupBox1->TabIndex = 5;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Добавление товара в корзину производится по уникальному номеру (id)";
@@ -167,7 +169,7 @@ namespace Теперьточно {
 			this->dataGridData->ReadOnly = true;
 			this->dataGridData->RowHeadersWidth = 55;
 			this->dataGridData->RowTemplate->DividerHeight = 1;
-			this->dataGridData->Size = System::Drawing::Size(551, 378);
+			this->dataGridData->Size = System::Drawing::Size(998, 537);
 			this->dataGridData->TabIndex = 6;
 			// 
 			// contextMenuStrip1
@@ -184,7 +186,7 @@ namespace Теперьточно {
 			// 
 			// Bask
 			// 
-			this->Bask->Location = System::Drawing::Point(191, 451);
+			this->Bask->Location = System::Drawing::Point(191, 600);
 			this->Bask->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->Bask->Name = L"Bask";
 			this->Bask->Size = System::Drawing::Size(178, 39);
@@ -195,7 +197,7 @@ namespace Теперьточно {
 			// 
 			// numericUpDown1
 			// 
-			this->numericUpDown1->Location = System::Drawing::Point(377, 461);
+			this->numericUpDown1->Location = System::Drawing::Point(377, 616);
 			this->numericUpDown1->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
 			this->numericUpDown1->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
@@ -225,7 +227,7 @@ namespace Теперьточно {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(14, 451);
+			this->button2->Location = System::Drawing::Point(14, 271);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(139, 39);
 			this->button2->TabIndex = 7;
@@ -235,7 +237,7 @@ namespace Теперьточно {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(14, 271);
+			this->button1->Location = System::Drawing::Point(12, 600);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(139, 37);
 			this->button1->TabIndex = 11;
@@ -247,7 +249,7 @@ namespace Теперьточно {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(771, 503);
+			this->ClientSize = System::Drawing::Size(1259, 656);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->butbask);
@@ -263,10 +265,12 @@ namespace Теперьточно {
 				static_cast<System::Byte>(204)));
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(1275, 695);
+			this->MinimumSize = System::Drawing::Size(1275, 695);
 			this->Name = L"MyForm2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Интернет Магазин Zamay";
-			this->Activated += gcnew System::EventHandler(this, &MyForm2::ALL_Click);
 			this->groupBox1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->EndInit();
 			this->contextMenuStrip1->ResumeLayout(false);
@@ -283,13 +287,22 @@ private: System::Void Cloth_Click(System::Object^ sender, System::EventArgs^ e);
 private: void Show();
 private: void HeaderA();
 private: void HeaderB();
+private: void HeaderC();
+	   private: void HeaderD();
+			  private: void HeaderE();
+					 void HeaderF();
 private: void ShowShoes();
 private: void ShowPants();
-private: void ShowCloth();
+private:
+	void HeaderG();
+	void HeaderH();
+	void HeaderI();
+	void ShowCloth();
 private: void ShowBask();
 private: System::Void butbask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Bask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void puc_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

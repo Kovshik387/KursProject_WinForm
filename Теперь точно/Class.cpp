@@ -1,49 +1,40 @@
 #include "Class.h"
+#include "Functions.h"
+#include "MyForm6.h"
+
 using namespace System;
+using namespace System::Threading::Tasks;
 
 Admin::Admin()
 {
 	ifstream File(FILE_MAIN_NAME);	// конструктор ворует начальные данные
-	if (!File.is_open()) throw exception("File read error");
-	count = 0;
-	while (!File.eof()) {
-		string temp;	// временна€ переменна€ строчного типа
-		getline(File, temp);
-		this->admin_data.push_back(temp);
-		count++;
+	if (File.is_open())
+	{
+		count = 0;
+		while (!File.eof()) {
+			string temp;	// временна€ переменна€ строчного типа
+			getline(File, temp);
+			this->admin_data.push_back(temp);
+			count++;
+		}
 	}
+	else { System::Windows::Forms::MessageBox::Show("‘айл повреждЄн", "ќшибка"); }
 	File.close();
+}
+
+void User::Purchase()
+{
+	srand(time(NULL));
+	day = 1 + rand() % 15;
+	while (day != 0) {
+		day--;
+	}
 }
 
 std::vector<std::string> Admin::Print_Admin_data()
 {
 	return admin_data;
 }
-
-//string Admin::GetPassword()
-//{
-//	return Password;
-//}
-
-//void User::Purchase()
-//{
-//	int it = day;
-//	fstream File(FILE_BASKET_NAME, ios::out);
-//	thread thr(travel, it);
-//	thr.detach();
-//}
-
-//void travel()
-//{
-//	srand(time(NULL));
-//	User user;
-//	int temp_day;
-//	temp_day = 1 + rand() % 15;
-//	user.SetDay(temp_day);
-//	this_thread::sleep_for(chrono::seconds(2));
-//	user.Purchase();
-//	this_thread::sleep_for(chrono::seconds(1));
-//}
 
 void User::SetDay(int day)
 {
@@ -148,16 +139,19 @@ std::vector<string> Object_::Print()
 
 Shoes_::Shoes_()
 {
+	bool temp = true;
 	smatch find_world;
 	regex regular(SEARCH_SHOES);	// регул€рное выражение
 	for (int i = 0; i < id; i++)
 	{
 		if (regex_search(data[i], find_world, regular)) {
-			if (count < 1) begin = i;
+			if (temp) begin = i;
 			count++;
 			Shoes_Data.push_back(data[i]);
 			end = i;
+			temp = false;
 		}
+		
 	}
 }
 
@@ -168,15 +162,17 @@ std::vector<std::string> Shoes_::Print()
 
 Pants_::Pants_()
 {
+	bool temp = true;
 	smatch find_world;
 	regex regular(SEARCH_PANTS);	// регул€рное выражение
 	for (int i = 0; i < id; i++)
 	{
 		if (regex_search(data[i], find_world, regular)) {
-			if (count < 1) begin = i;
+			if (temp) begin = i;
 			count++;
 			Pants_Data.push_back(data[i]);
 			end = i;
+			temp = false;
 		}
 	}
 }
@@ -188,15 +184,17 @@ std::vector<std::string> Pants_::Print()
 
 Cloth_::Cloth_()
 {
+	bool temp = true;
 	smatch find_world;
 	regex regular(SEARCH_CLOTH);	// регул€рное выражение
 	for (int i = 0; i < id; i++)
 	{
 		if (regex_search(data[i], find_world, regular)) {
-			if (count < 1) begin = i;
+			if (temp) begin = i;
 			count++;
 			Cloth_Data.push_back(data[i]);
 			end = i;
+			temp = false;
 		}
 	}
 }

@@ -126,6 +126,9 @@
     <ClCompile Include="MyForm1.cpp" />
     <ClCompile Include="MyForm2.cpp" />
     <ClCompile Include="MyForm3.cpp" />
+    <ClCompile Include="MyForm4.cpp" />
+    <ClCompile Include="MyForm5.cpp" />
+    <ClCompile Include="MyForm6.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class.h" />
@@ -142,6 +145,15 @@
     <ClInclude Include="MyForm3.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MyForm4.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm5.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="MyForm6.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
@@ -155,6 +167,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm3.resx">
       <DependentUpon>MyForm3.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm4.resx">
+      <DependentUpon>MyForm4.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm5.resx">
+      <DependentUpon>MyForm5.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyForm6.resx">
+      <DependentUpon>MyForm6.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

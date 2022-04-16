@@ -6,7 +6,7 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-//[STAThreadAttribute]
+[STAThreadAttribute]
 int main(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
@@ -20,7 +20,6 @@ System::Void Теперьточно::MyForm::button1_Click(System::Object^ sender, System::
 	Form::Hide();
 	MyForm1^ form1 = gcnew MyForm1();
 	form1->Show();
-	return System::Void();
 }
 
 System::Void Теперьточно::MyForm::Admin_Click(System::Object^ sender, System::EventArgs^ e)
@@ -29,5 +28,4 @@ System::Void Теперьточно::MyForm::Admin_Click(System::Object^ sender, System::Ev
 	Form::Hide();
 	MyForm2^ form2 = gcnew MyForm2();
 	form2->Show();
-	return System::Void();
 }

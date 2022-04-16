@@ -1,4 +1,3 @@
-Shoes Sneakers Man Adidas Ozweego 43 9900 black 2
 Shoes Sneakers Woman Adidas Ozelia 39 15000 white 5
 Shoes Sneakers Man CHnCH Kunkka 45 99999 blue 1
 Shoes Sneakers Man Balenciaga TripleS 44 40000 white 1
@@ -30,3 +29,7 @@ Cloth Tshirt Woman Levis aime 35 4600 black 5
 Shoes Sneakers Man Nike AirMonarch 45 6800 white 3
 Shoes Boots Man FDI Geniy 40 3890 red 5
 Cloth Tshirt Man Matvey Brain 72 1400 yellow 1
+Shoes Sneakers Man Over Hype 44 20000 black 2
+Shoes Boots Woman LOF LIFI 34 9999 black 2
+Shoes Sneakers Man Adidas CURT 43 99200 grey 2
+Shoes Sneakers Woman dwadwa dwadwad 2 1 white 6
