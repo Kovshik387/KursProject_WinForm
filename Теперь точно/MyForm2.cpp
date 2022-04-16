@@ -157,7 +157,7 @@ System::Void Теперьточно::MyForm2::button2_Click(System::Object^ sender, System:
 	int day = 1 + rand() % 15;
 	DateTime date1 = DateTime::Today;
 	int day_temp = Convert::ToInt16(date1.Day) + day;
-	String^ Str = "Ваш заказ собран,приблизительное время доставки " + day_temp.ToString() + " Апреля";
+	String^ Str =  Convert::ToString(day_temp) + " " + date1.ToString("Y") + " :\tприблизительное время доставки ";/*+ day_temp.ToString() + " Апреля";*/
 	MessageBox::Show(Str, "Успешно");
 	dataGridData->Rows->Clear();
 	dataGridData->Columns->Clear();
