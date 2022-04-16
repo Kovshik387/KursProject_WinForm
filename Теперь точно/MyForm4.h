@@ -310,7 +310,7 @@ namespace Теперьточно {
 			this->MinimumSize = System::Drawing::Size(323, 334);
 			this->Name = L"MyForm4";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm4";
+			this->Text = L"ADD_SHOES";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericCount))->EndInit();

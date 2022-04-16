@@ -335,7 +335,7 @@ namespace Теперьточно {
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"MyForm6";
-			this->Text = L"MyForm6";
+			this->Text = L"ADD_CLOTH";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericCount))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();

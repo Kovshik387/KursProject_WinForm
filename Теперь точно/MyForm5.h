@@ -326,7 +326,7 @@ namespace Теперьточно {
 			this->MinimizeBox = false;
 			this->MinimumSize = System::Drawing::Size(323, 334);
 			this->Name = L"MyForm5";
-			this->Text = L"MyForm5";
+			this->Text = L"ADD_PANTS";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericCount))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
