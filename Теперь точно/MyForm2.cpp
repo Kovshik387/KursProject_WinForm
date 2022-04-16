@@ -155,7 +155,9 @@ System::Void Теперьточно::MyForm2::button2_Click(System::Object^ sender, System:
 	fstream File(FILE_BASKET_NAME, ios::out);
 	srand(time(NULL));
 	int day = 1 + rand() % 15;
-	String^ Str = "Ваш заказ собран,приблизительное время доставки " + Convert::ToString(day) + " дней";
+	DateTime date1 = DateTime::Today;
+	int day_temp = Convert::ToInt16(date1.Day) + day;
+	String^ Str = "Ваш заказ собран,приблизительное время доставки " + day_temp.ToString() + " Апреля";
 	MessageBox::Show(Str, "Успешно");
 	dataGridData->Rows->Clear();
 	dataGridData->Columns->Clear();
