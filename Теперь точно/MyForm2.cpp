@@ -3,8 +3,10 @@
 #include "Functions.h"
 #include "MyForm.h"
 
+using namespace System::Windows::Forms;
 using namespace System::Threading;
 using namespace System::Threading::Tasks;
+using namespace System::Runtime::InteropServices;
 
 System::Void Теперьточно::MyForm2::ALL_Click(System::Object^ sender, System::EventArgs^ e)
 {
@@ -15,15 +17,7 @@ System::Void Теперьточно::MyForm2::ALL_Click(System::Object^ sender, System::Eve
 	if (v[0] == "") MessageBox::Show("Магазин временно закрыт, Администрация скоро исправит ситуацию", "Упсс....");
 	else
 	{
-		HeaderA();
-		HeaderB();
-		HeaderC();
-		HeaderD();
-		HeaderE();
-		HeaderF();
-		HeaderG();
-		HeaderH();
-		HeaderI();
+		Headers();
 		dataGridData->AutoResizeRows();
 		Show();
 	}
@@ -39,15 +33,7 @@ System::Void Теперьточно::MyForm2::Shoes_Click(System::Object^ sender, System::E
 	if (v[0] == "") MessageBox::Show("Магазин временно закрыт, Администрация скоро исправит ситуацию", "Упсс....");
 	else
 	{
-		HeaderA();
-		HeaderB();
-		HeaderC();
-		HeaderD();
-		HeaderE();
-		HeaderF();
-		HeaderG();
-		HeaderH();
-		HeaderI();
+		Headers();
 		dataGridData->AutoResizeRows();
 		ShowShoes();
 	}
@@ -62,15 +48,7 @@ System::Void Теперьточно::MyForm2::Pants_Click(System::Object^ sender, System::E
 	if (v[0] == "") MessageBox::Show("Магазин временно закрыт, Администрация скоро исправит ситуацию", "Упсс....");
 	else
 	{
-		HeaderA();
-		HeaderB();
-		HeaderC();
-		HeaderD();
-		HeaderE();
-		HeaderF();
-		HeaderG();
-		HeaderH();
-		HeaderI();
+		Headers();
 		dataGridData->AutoResizeRows();
 		ShowPants();
 	}
@@ -85,15 +63,7 @@ System::Void Теперьточно::MyForm2::Cloth_Click(System::Object^ sender, System::E
 	if (v[0] == "") MessageBox::Show("Магазин временно закрыт, Администрация скоро исправит ситуацию", "Упсс....");
 	else
 	{
-		HeaderA();
-		HeaderB();
-		HeaderC();
-		HeaderD();
-		HeaderE();
-		HeaderF();
-		HeaderG();
-		HeaderH();
-		HeaderI();
+		Headers();
 		dataGridData->AutoResizeRows();
 		ShowCloth();
 	}
@@ -108,15 +78,7 @@ System::Void Теперьточно::MyForm2::butbask_Click(System::Object^ sender, System:
 		dataGridData->Rows->Clear();
 		dataGridData->Columns->Clear();
 		dataGridData->RowCount = basket.GetBC();
-		HeaderA();
-		HeaderB();
-		HeaderC();
-		HeaderD();
-		HeaderE();
-		HeaderF();
-		HeaderG();
-		HeaderH();
-		HeaderI();
+		Headers();
 		ShowBask();
 	}
 	return System::Void();
@@ -127,38 +89,40 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 		Basket basket;
 		Object_ object;
 		object.item();
+		String^ a;
 		vector<string> ve = object.Print();
-		String^ a = dataGridData->CurrentRow->Index.ToString();
+		a = dataGridData->CurrentRow->Index.ToString();
 		int ask = Convert::ToInt16(a) + 1;	// Convert::ToInt16(numericUpDown1->Text); //работает
 		if ((ask > object.GetCount()) || (ve[0] == "")) { MessageBox::Show("Индекс не принадлежит диапазону", "упс"); }
 		else {
 			object.Basket(ask);
 			dataGridData->Rows->Clear();
 			dataGridData->Columns->Clear();
-			Object_ obj; obj.item();auto v = obj.Print();
+			Object_ obj; obj.item(); auto v = obj.Print();
 			dataGridData->RowCount = obj.GetCount();
-			HeaderA();
-			HeaderB();
-			HeaderC();
-			HeaderD();
-			HeaderE();
-			HeaderF();
-			HeaderG();
-			HeaderH();
-			HeaderI();
+			Headers();
 			Show();
 		}
 }
+//delegate void D();
 
 System::Void Теперьточно::MyForm2::button2_Click(System::Object^ sender, System::EventArgs^ e) // заказ
 {
-	// поток доставки
-	fstream File(FILE_BASKET_NAME, ios::out);
 	srand(time(NULL));
-	int day = 1 + rand() % 15;
+	int day = 1 + rand() % 30;
+	this->temp = gcnew Temp();
+	this->temp->order_id = Guid::NewGuid();
+	this->temp->value = day;
+	// поток доставки
+	Task<System::Guid>^ thread = gcnew Task<System::Guid>(gcnew Func<Guid>(temp, &Temp::D));
+	thread->ContinueWith(gcnew Action<Task<Guid>^>(temp, &Temp::B)); // :(
+	thread->Start();
+	// end поток доставки
+	fstream File(FILE_BASKET_NAME, ios::out);
 	DateTime date1 = DateTime::Today;
+	DateTime answer = date1.AddDays(day);
 	int day_temp = Convert::ToInt16(date1.Day) + day;
-	String^ Str =  Convert::ToString(day_temp) + " " + date1.ToString("Y") + " :\tприблизительное время доставки ";/*+ day_temp.ToString() + " Апреля";*/
+	String^ Str = answer.ToString("m") +" <= приблизительное время доставки " + "\nЗаказ номер: " + this->temp->order_id.ToString();
 	MessageBox::Show(Str, "Успешно");
 	dataGridData->Rows->Clear();
 	dataGridData->Columns->Clear();
@@ -169,6 +133,26 @@ System::Void Теперьточно::MyForm2::button1_Click(System::Object^ sender, System:
 	Form::Hide();
 	MyForm^ form = gcnew MyForm();
 	form->Show();
+}
+
+void Теперьточно::MyForm2::Headers()
+{
+	HeaderA();
+	HeaderB();
+	HeaderC();
+	HeaderD();
+	HeaderE();
+	HeaderF();
+	HeaderG();
+	HeaderH();
+	HeaderI();
+}
+
+System::Void Теперьточно::MyForm2::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (temp->value == 0) MessageBox::Show("Нет активных заказов", "Упсс...");
+	else
+	MessageBox::Show("Ориентировноче время доставки: " +this->temp->value.ToString()+ " дней", "Статус");
 }
 
 void Pur() 
@@ -291,6 +275,7 @@ void Теперьточно::MyForm2::ShowCloth()
 	for (int i = cloth.GetBegin(); i < object.GetCount(); i++)
 	{
 		if (regex_search(v[i], find_world, regular)) {
+			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
 			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
 			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
@@ -320,6 +305,7 @@ void Теперьточно::MyForm2::ShowBask()
 	vector<Ones> ones_v = ReturnCell(v, basket.GetBC());
 	for (int i = 0; i < basket.GetBC(); i++)
 	{
+		dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 		dataGridData->Columns[0]->HeaderCell->Value = "id";
 		dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
 		dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
@@ -350,6 +336,7 @@ void Теперьточно::MyForm2::ShowPants()
 	for (int i = pants.GetBegin(); i < object.GetCount(); i++)
 	{
 		if (regex_search(v[i], find_world, regular)) {
+			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
 			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
 			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
@@ -385,6 +372,7 @@ void Теперьточно::MyForm2::ShowShoes()
 	for (int i = shoes.GetBegin(); i < object.GetCount(); i++)
 	{
 		if (regex_search(v[i], find_world, regular)) {
+			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
 			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
 			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
@@ -413,6 +401,7 @@ void Теперьточно::MyForm2::Show()
 	vector<Ones> ones_v = ReturnCell(v, object.GetCount());
 	for (int i = 0 ; i < object.GetCount();i++)
 	{
+		dataGridData->Rows[i]->HeaderCell->Value = "=>";
 		dataGridData->Columns[0]->HeaderCell->Value = "id";
 		dataGridData->Rows[i]->Cells[0]->Value = Convert::ToString(i + 1);
 		dataGridData->Rows[i]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);

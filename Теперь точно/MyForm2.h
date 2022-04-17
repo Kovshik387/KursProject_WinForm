@@ -8,15 +8,44 @@ namespace Теперьточно {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::Threading;
+	using namespace System::Threading::Tasks;
 	/// <summary>
+	///
+	public ref struct Temp
+	{
+		property System::Int32 value;
+		property System::Guid order_id;
+		
+		Guid D(void)
+		{
+			Console::WriteLine("Start");
+			while (value > 0)
+			{
+				value--;
+				Thread::Sleep(1000);
+			}
+			return this->order_id;
+		}
+
+		void B(Task<Guid>^ temp)
+		{
+			MessageBox::Show("Заказ " + temp->Result + "\nПрибыл","Состояние");
+			this->value = 0;
+			this->order_id = System::Guid::Empty;
+		}
+
+		Temp(System::Void) { value = 0; order_id = System::Guid::Empty; }
+	};
 	/// Сводка для MyForm2
 	/// </summary>
 	public ref class MyForm2 : public System::Windows::Forms::Form
 	{
+	Temp^ temp = nullptr;
 	public:
 		MyForm2(void)
 		{
+			this->temp = gcnew Temp();
 			InitializeComponent();
 			//
 			//TODO: добавьте код конструктора
@@ -54,6 +83,7 @@ namespace Теперьточно {
 
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ button3;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -88,6 +118,7 @@ namespace Теперьточно {
 			this->butbask = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridData))->BeginInit();
 			this->contextMenuStrip1->SuspendLayout();
@@ -232,11 +263,22 @@ namespace Теперьточно {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm2::button1_Click);
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(14, 361);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(139, 36);
+			this->button3->TabIndex = 12;
+			this->button3->Text = L"button3";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm2::button3_Click);
+			// 
 			// MyForm2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 15);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1259, 656);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->butbask);
@@ -288,5 +330,7 @@ private: System::Void butbask_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void Bask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	   void Headers();
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
