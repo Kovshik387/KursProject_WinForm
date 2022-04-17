@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class.h" />
+    <ClInclude Include="Fucnc.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>

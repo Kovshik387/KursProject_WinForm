@@ -1,4 +1,5 @@
 #pragma once
+#include "Fucnc.h"
 
 namespace Теперьточно {
 
@@ -12,31 +13,7 @@ namespace Теперьточно {
 	using namespace System::Threading::Tasks;
 	/// <summary>
 	///
-	public ref struct Temp
-	{
-		property System::Int32 value;
-		property System::Guid order_id;
-		
-		Guid D(void)
-		{
-			Console::WriteLine("Start");
-			while (value > 0)
-			{
-				value--;
-				Thread::Sleep(1000);
-			}
-			return this->order_id;
-		}
-
-		void B(Task<Guid>^ temp)
-		{
-			MessageBox::Show("Заказ " + temp->Result + "\nПрибыл","Состояние");
-			this->value = 0;
-			this->order_id = System::Guid::Empty;
-		}
-
-		Temp(System::Void) { value = 0; order_id = System::Guid::Empty; }
-	};
+	
 	/// Сводка для MyForm2
 	/// </summary>
 	public ref class MyForm2 : public System::Windows::Forms::Form
@@ -267,9 +244,9 @@ namespace Теперьточно {
 			// 
 			this->button3->Location = System::Drawing::Point(14, 361);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(139, 36);
+			this->button3->Size = System::Drawing::Size(139, 40);
 			this->button3->TabIndex = 12;
-			this->button3->Text = L"button3";
+			this->button3->Text = L"Проверить статус Вашего заказа";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm2::button3_Click);
 			// 

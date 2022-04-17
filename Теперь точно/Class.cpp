@@ -22,14 +22,6 @@ Admin::Admin()
 	File.close();
 }
 
-void User::Purchase()
-{
-	srand(time(NULL));
-	day = 1 + rand() % 15;
-	while (day != 0) {
-		day--;
-	}
-}
 
 std::vector<std::string> Admin::Print_Admin_data()
 {

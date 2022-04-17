@@ -81,7 +81,6 @@ System::Void Теперьточно::MyForm2::butbask_Click(System::Object^ sender, System:
 		Headers();
 		ShowBask();
 	}
-	return System::Void();
 }
 
 System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::EventArgs^ e)
@@ -89,10 +88,10 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 		Basket basket;
 		Object_ object;
 		object.item();
-		String^ a;
+		String^ a; //работает
 		vector<string> ve = object.Print();
-		a = dataGridData->CurrentRow->Index.ToString();
-		int ask = Convert::ToInt16(a) + 1;	// Convert::ToInt16(numericUpDown1->Text); //работает
+		a = dataGridData->CurrentCell->Value->ToString(); // хз											  //a = dataGridData->CurrentRow->Index.ToString(); работает
+		int ask = Convert::ToInt16(a);	// Convert::ToInt16(numericUpDown1->Text); //работает
 		if ((ask > object.GetCount()) || (ve[0] == "")) { MessageBox::Show("Индекс не принадлежит диапазону", "упс"); }
 		else {
 			object.Basket(ask);
@@ -100,8 +99,10 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 			dataGridData->Columns->Clear();
 			Object_ obj; obj.item(); auto v = obj.Print();
 			dataGridData->RowCount = obj.GetCount();
-			Headers();
-			Show();
+			if (ve.size() != 1) {
+				Headers();
+				Show();
+			}
 		}
 }
 //delegate void D();
@@ -153,15 +154,6 @@ System::Void Теперьточно::MyForm2::button3_Click(System::Object^ sender, System:
 	if (temp->value == 0) MessageBox::Show("Нет активных заказов", "Упсс...");
 	else
 	MessageBox::Show("Ориентировноче время доставки: " +this->temp->value.ToString()+ " дней", "Статус");
-}
-
-void Pur() 
-{
-	Thread::Sleep(3000);
-	User user; auto u = user.GetDay();
-	u--;
-	user.SetDay(u);
-	Thread::Sleep(3000);
 }
 
 void Теперьточно::MyForm2::HeaderA()
