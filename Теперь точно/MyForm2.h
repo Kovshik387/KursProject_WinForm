@@ -166,11 +166,13 @@ namespace Теперьточно {
 			this->dataGridData->AllowUserToDeleteRows = false;
 			this->dataGridData->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridData->BackgroundColor = System::Drawing::SystemColors::Info;
+			this->dataGridData->CausesValidation = false;
 			this->dataGridData->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
 			this->dataGridData->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridData->Location = System::Drawing::Point(7, 39);
 			this->dataGridData->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
 			this->dataGridData->MinimumSize = System::Drawing::Size(58, 0);
+			this->dataGridData->MultiSelect = false;
 			this->dataGridData->Name = L"dataGridData";
 			this->dataGridData->ReadOnly = true;
 			this->dataGridData->RowHeadersWidth = 55;

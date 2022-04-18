@@ -90,6 +90,7 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 		object.item();
 		String^ a; //работает
 		vector<string> ve = object.Print();
+		if (dataGridData->CurrentCell->ColumnIndex == -1)  MessageBox::Show("x", "x");
 		a = dataGridData->CurrentCell->Value->ToString(); // хз											  //a = dataGridData->CurrentRow->Index.ToString(); работает
 		int ask = Convert::ToInt16(a);	// Convert::ToInt16(numericUpDown1->Text); //работает
 		if ((ask > object.GetCount()) || (ve[0] == "")) { MessageBox::Show("Индекс не принадлежит диапазону", "упс"); }
