@@ -340,7 +340,7 @@ void Теперьточно::MyForm2::ShowBask()
 	{
 		dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 		dataGridData->Columns[0]->HeaderCell->Value = "id";
-		dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
+		dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1) + ".";
 		dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
 		dataGridData->Rows[temp]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
 		dataGridData->Rows[temp]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
