@@ -19,4 +19,5 @@ System::Void Теперьточно::MyForm6::Aadd_Click(System::Object^ sender, System::Ev
 	File << "\n" << temp;
 	MessageBox::Show("Успешно", "Состояние");
 	File.close();
+	this->Close();
 }

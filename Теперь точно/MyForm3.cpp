@@ -10,14 +10,7 @@ using namespace System;
 
 System::Void Теперьточно::MyForm3::ShowA_Click(System::Object^ sender, System::EventArgs^ e)
 {
-	Admin ad;
-	dataGridView1->Rows->Clear();
-	dataGridView1->Columns->Clear();
-	dataGridView1->RowCount = ad.GetCount();
-
-	HeaderAdmin();
-	ShowAdmin();
-
+	Show_Admin_retry();
 }
 
 void Теперьточно::MyForm3::ShowAdmin()
@@ -86,10 +79,10 @@ System::Void Теперьточно::MyForm3::delete__Click_1(System::Object^ sender, Syste
 	Admin admin;
 	auto v = admin.Print_Admin_data();
 	int ask = Convert::ToInt16(numericUpDown1->Text);
-	if (ask > v.size() || v[0] == "") MessageBox::Show("Индекс находится вне диапазона", "Ошибка");
+	ask--;
+	if (ask > (v.size()-1) || v[0] == "") MessageBox::Show("Индекс находится вне диапазона", "Ошибка");
 	else
 	{
-		ask--;
 		v.erase(v.begin() + ask);
 		ofstream File(FILE_MAIN_NAME, ios_base::trunc);
 		for (int i = 0; i < v.size(); i++)
@@ -99,6 +92,19 @@ System::Void Теперьточно::MyForm3::delete__Click_1(System::Object^ sender, Syste
 		}
 		File.close();
 	}
+	Show_Admin_retry();
+}
+
+void Теперьточно::MyForm3::Show_Admin_retry()
+{
+	Admin ad;
+	dataGridView1->Rows->Clear();
+	dataGridView1->Columns->Clear();
+	dataGridView1->RowCount = ad.GetCount();
+
+	HeaderAdmin();
+	ShowAdmin();
+
 }
 
 //System::Void Теперьточно::MyForm3::button2_Click(System::Object^ sender, System::EventArgs^ e)

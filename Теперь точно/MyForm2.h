@@ -24,6 +24,7 @@ namespace Òåïåðüòî÷íî {
 		{
 			this->temp = gcnew Temp();
 			InitializeComponent();
+			
 			//
 			//TODO: äîáàâüòå êîä êîíñòðóêòîðà
 			//
@@ -53,7 +54,7 @@ namespace Òåïåðüòî÷íî {
 
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ îÏðîãðàììåToolStripMenuItem;
-	private: System::Windows::Forms::Button^ Bask;
+
 
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ butbask;
@@ -61,6 +62,7 @@ namespace Òåïåðüòî÷íî {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button3;
+
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -90,7 +92,6 @@ namespace Òåïåðüòî÷íî {
 			this->dataGridData = (gcnew System::Windows::Forms::DataGridView());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->Bask = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->butbask = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
@@ -179,6 +180,7 @@ namespace Òåïåðüòî÷íî {
 			this->dataGridData->RowTemplate->DividerHeight = 1;
 			this->dataGridData->Size = System::Drawing::Size(998, 537);
 			this->dataGridData->TabIndex = 6;
+			this->dataGridData->DoubleClick += gcnew System::EventHandler(this, &MyForm2::Bask_Click);
 			// 
 			// contextMenuStrip1
 			// 
@@ -191,17 +193,6 @@ namespace Òåïåðüòî÷íî {
 			this->îÏðîãðàììåToolStripMenuItem->Name = L"îÏðîãðàììåToolStripMenuItem";
 			this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(149, 22);
 			this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
-			// 
-			// Bask
-			// 
-			this->Bask->Location = System::Drawing::Point(14, 316);
-			this->Bask->Margin = System::Windows::Forms::Padding(4, 3, 4, 3);
-			this->Bask->Name = L"Bask";
-			this->Bask->Size = System::Drawing::Size(139, 39);
-			this->Bask->TabIndex = 7;
-			this->Bask->Text = L"Äîáàâèòü â êîðçèíó";
-			this->Bask->UseVisualStyleBackColor = true;
-			this->Bask->Click += gcnew System::EventHandler(this, &MyForm2::Bask_Click);
 			// 
 			// label1
 			// 
@@ -244,7 +235,7 @@ namespace Òåïåðüòî÷íî {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(14, 361);
+			this->button3->Location = System::Drawing::Point(14, 316);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(139, 40);
 			this->button3->TabIndex = 12;
@@ -263,7 +254,6 @@ namespace Òåïåðüòî÷íî {
 			this->Controls->Add(this->butbask);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->Cloth);
-			this->Controls->Add(this->Bask);
 			this->Controls->Add(this->Pants);
 			this->Controls->Add(this->Shoes);
 			this->Controls->Add(this->ALL);
@@ -310,6 +300,7 @@ private: System::Void Bask_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	   void Headers();
+	   void Headers_B();
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

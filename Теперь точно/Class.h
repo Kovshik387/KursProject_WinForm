@@ -70,10 +70,10 @@ protected:
 	int id = 0;
 };
 
-class Basket
+class Basket_
 {
 public:
-	Basket();
+	Basket_();
 	vector <string> GetBK();
 	int GetBC() { return bc; }
 private:

@@ -296,6 +296,7 @@ namespace Теперьточно {
 			this->Aadd->TabIndex = 18;
 			this->Aadd->Text = L"Добавить";
 			this->Aadd->UseVisualStyleBackColor = true;
+			this->Aadd->Click += gcnew System::EventHandler(this, &MyForm5::Aadd_Click);
 			// 
 			// MyForm5
 			// 
@@ -326,6 +327,7 @@ namespace Теперьточно {
 			this->MinimizeBox = false;
 			this->MinimumSize = System::Drawing::Size(323, 334);
 			this->Name = L"MyForm5";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"ADD_PANTS";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericCount))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
@@ -335,6 +337,7 @@ namespace Теперьточно {
 
 		}
 #pragma endregion
-		System::Void Aadd_Click_1(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void Aadd_Click_1(System::Object^ sender, System::EventArgs^ e);
+private: System::Void Aadd_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

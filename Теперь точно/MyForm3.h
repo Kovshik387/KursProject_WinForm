@@ -317,9 +317,10 @@ namespace Теперьточно {
 	private: void HeaderAdmin();
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e); // выход amdin
 	private: System::Void Dat_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Shoes_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Pants_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void Cloth_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void delete__Click_1(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Shoes_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Pants_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void Cloth_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void delete__Click_1(System::Object^ sender, System::EventArgs^ e);
+	private: void Show_Admin_retry();
 };
 }

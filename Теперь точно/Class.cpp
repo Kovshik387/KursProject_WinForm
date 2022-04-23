@@ -33,7 +33,7 @@ void User::SetDay(int day)
 	this->day = day;
 }
 
-Basket::Basket()
+Basket_::Basket_()
 {
 	ifstream File(FILE_BASKET_NAME);
 	if (!File.is_open()) throw exception("File read error");
@@ -45,7 +45,7 @@ Basket::Basket()
 	File.close();
 }
 
-vector <string> Basket::GetBK()
+vector <string> Basket_::GetBK()
 {
 	return bk;
 }
@@ -82,18 +82,31 @@ void Object_::Basket (int id_)
 {
 	fstream File(FILE_NAME); fstream File_Basket(FILE_BASKET_NAME, ios_base::app); // открытие файлов
 	id_--; // аргумент передаваем в метод класса Object
-	string temp; string buff; // временные переменные
+	Basket_ basket_; auto valueBasket = basket_.GetBK();
+	string temp; string buff;// временные переменные
 	temp = (data[id_].c_str()[data[id_].size() - 1]);
 	buff = data[id_];
 	int count = stoi(temp); // преобразование из строчного типа в целочисленный
 	if (count == 1) {									// проверка, если товар в одном экземпляре,
 		buff.replace(buff.size() - 1, buff.size(), "1");// то удаляем его из общего списка товаров
-		File_Basket << buff << endl;
+		if (valueBasket[NULL] == "") {
+			File_Basket << buff;
+		}
+		else
+		{
+			File_Basket << endl << buff;
+		}
 		data.erase(data.begin() + id_);
 	}
 	else {
 		buff.replace(buff.size() - 1, buff.size(), "1");
-		File_Basket << buff << endl; // запись данных в файл "корзина"
+		if (valueBasket[NULL] == "") {
+			File_Basket << buff;
+		}
+		else
+		{
+			File_Basket << endl << buff;
+		} // запись данных в файл "корзина"
 		count--; string temp2 = to_string(count); // преоброзование уменьшенного значения в строчный тип
 		this->data[id_].replace(data[id_].size() - 1, data[id_].size(), temp2); // замена в векторе количества товара
 	}

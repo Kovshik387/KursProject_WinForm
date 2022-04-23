@@ -71,7 +71,7 @@ namespace Теперьточно {
 			// 
 			this->textBox1->Cursor = System::Windows::Forms::Cursors::Cross;
 			this->textBox1->HideSelection = false;
-			this->textBox1->Location = System::Drawing::Point(74, 88);
+			this->textBox1->Location = System::Drawing::Point(12, 39);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(111, 20);
@@ -89,7 +89,7 @@ namespace Теперьточно {
 			this->label1->BackColor = System::Drawing::SystemColors::Window;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(44, 47);
+			this->label1->Location = System::Drawing::Point(8, 9);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(171, 24);
 			this->label1->TabIndex = 1;
@@ -97,7 +97,7 @@ namespace Теперьточно {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(92, 114);
+			this->button1->Location = System::Drawing::Point(129, 37);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 2;
@@ -107,7 +107,7 @@ namespace Теперьточно {
 			// 
 			// Backkk
 			// 
-			this->Backkk->Location = System::Drawing::Point(92, 201);
+			this->Backkk->Location = System::Drawing::Point(12, 82);
 			this->Backkk->Name = L"Backkk";
 			this->Backkk->Size = System::Drawing::Size(75, 23);
 			this->Backkk->TabIndex = 3;
@@ -120,19 +120,19 @@ namespace Теперьточно {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
-			this->ClientSize = System::Drawing::Size(250, 237);
+			this->ClientSize = System::Drawing::Size(250, 117);
 			this->Controls->Add(this->Backkk);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(266, 276);
+			this->MaximumSize = System::Drawing::Size(266, 156);
 			this->MinimizeBox = false;
-			this->MinimumSize = System::Drawing::Size(266, 276);
+			this->MinimumSize = System::Drawing::Size(266, 156);
 			this->Name = L"MyForm1";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm1";
+			this->Text = L"Авторизация";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

@@ -62,22 +62,31 @@ namespace Теперьточно {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(88, 113);
+			this->button1->BackColor = System::Drawing::Color::Linen;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Location = System::Drawing::Point(3, 229);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(111, 37);
+			this->button1->Size = System::Drawing::Size(279, 30);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Войти как Администратор";
-			this->button1->UseVisualStyleBackColor = true;
+			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// Admin
 			// 
-			this->Admin->Location = System::Drawing::Point(88, 156);
+			this->Admin->BackColor = System::Drawing::Color::Purple;
+			this->Admin->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Admin.BackgroundImage")));
+			this->Admin->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(192)));
+			this->Admin->FlatAppearance->BorderSize = 0;
+			this->Admin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->Admin->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->Admin->Location = System::Drawing::Point(93, 56);
 			this->Admin->Name = L"Admin";
-			this->Admin->Size = System::Drawing::Size(111, 37);
+			this->Admin->Size = System::Drawing::Size(93, 34);
 			this->Admin->TabIndex = 1;
 			this->Admin->Text = L"Войти как пользователь";
-			this->Admin->UseVisualStyleBackColor = true;
+			this->Admin->UseVisualStyleBackColor = false;
 			this->Admin->Click += gcnew System::EventHandler(this, &MyForm::Admin_Click);
 			// 
 			// label1
@@ -86,9 +95,9 @@ namespace Теперьточно {
 				static_cast<System::Byte>(204)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
-			this->label1->Location = System::Drawing::Point(-4, 0);
+			this->label1->Location = System::Drawing::Point(-10, -4);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(294, 274);
+			this->label1->Size = System::Drawing::Size(304, 273);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Интернет-Магазин Zamay";
 			// 

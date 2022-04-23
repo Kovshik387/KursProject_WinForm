@@ -300,7 +300,7 @@ namespace Теперьточно {
 			// 
 			// Aadd
 			// 
-			this->Aadd->Location = System::Drawing::Point(100, 250);
+			this->Aadd->Location = System::Drawing::Point(12, 232);
 			this->Aadd->Name = L"Aadd";
 			this->Aadd->Size = System::Drawing::Size(113, 32);
 			this->Aadd->TabIndex = 18;
@@ -335,6 +335,7 @@ namespace Теперьточно {
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"MyForm6";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ADD_CLOTH";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericCount))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
