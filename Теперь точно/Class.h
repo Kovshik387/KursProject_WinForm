@@ -20,6 +20,18 @@
 #define SPACE R"(^\s)"
 using namespace std;
 
+enum En_name
+{
+	Category= 1,
+	Type	= 2,
+	Gender	= 3,
+	Brand	= 4,
+	Model	= 5,
+	Size	= 6,
+	Price	= 7,
+	Color	= 8,
+	Count	= 9,
+};
 
 struct Ones
 {
@@ -42,21 +54,9 @@ public:
 	string GetPassword() { return Password; };
 	int GetCount() { return count; }
 private:
-	string Password = "OOP1337";
+	const string Password = "OOP1337";
 	vector <string> admin_data;
 	int count = 0;
-};
-
-class User
-{
-public:
-	void Purchase();
-	void SetDay(int day);
-	int GetDay() { return day; }
-	/*int SetPurchaseDay(int purchday);*/
-private:
-	int day;
-	static int PurchaseDay;
 };
 
 class Builder

@@ -28,11 +28,6 @@ std::vector<std::string> Admin::Print_Admin_data()
 	return admin_data;
 }
 
-void User::SetDay(int day)
-{
-	this->day = day;
-}
-
 Basket_::Basket_()
 {
 	ifstream File(FILE_BASKET_NAME);
@@ -67,7 +62,7 @@ void Object_::item()
 	regex regular(SEARCH_EXP_NEW);	// регулярное выражение
 	smatch find_word;
 	vector<string>::iterator it = data.begin();// Удаление мусора
-	int i = 0; // временная переменная, но ОНА НЕОБХОДИМА
+	int i = 0; // временная переменная
 	count = id;
 	while (i < id) {
 		if (!regex_match(data[i], find_word, regular)) {// проверка
@@ -114,8 +109,8 @@ void Object_::Basket (int id_)
 	ofstream File_New(FILE_NAME, ios_base::trunc); // открытие файла в режиме "запись в конец"
 	if (!File_New.is_open()) throw exception("File read error"); // ошибка открытия файла
 	for (int i = 0; i < data.size(); i++) {  // запись добавленного предмета в конец "корзины"
-		if (i == data.size() - 1) File_New << data[i]; // костыль
-		else File_New << data[i] << endl;			   //
+		if (i == data.size() - 1) File_New << data[i];
+		else File_New << data[i] << endl;			   
 	}
 	File_New.close();
 }

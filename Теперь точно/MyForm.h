@@ -81,7 +81,7 @@ namespace Теперьточно {
 			this->Admin->FlatAppearance->BorderSize = 0;
 			this->Admin->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Admin->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->Admin->Location = System::Drawing::Point(93, 56);
+			this->Admin->Location = System::Drawing::Point(103, 59);
 			this->Admin->Name = L"Admin";
 			this->Admin->Size = System::Drawing::Size(93, 34);
 			this->Admin->TabIndex = 1;
@@ -95,7 +95,7 @@ namespace Теперьточно {
 				static_cast<System::Byte>(204)));
 			this->label1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->label1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"label1.Image")));
-			this->label1->Location = System::Drawing::Point(-10, -4);
+			this->label1->Location = System::Drawing::Point(-1, -1);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(304, 273);
 			this->label1->TabIndex = 2;

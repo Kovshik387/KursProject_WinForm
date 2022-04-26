@@ -106,10 +106,3 @@ void Теперьточно::MyForm3::Show_Admin_retry()
 	ShowAdmin();
 
 }
-
-//System::Void Теперьточно::MyForm3::button2_Click(System::Object^ sender, System::EventArgs^ e)
-//{
-//	string name;
-//	String^ Str	= textBox1->Text->ToString();
-//	name = Stos(Str);
-//}

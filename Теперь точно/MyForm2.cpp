@@ -91,7 +91,7 @@ System::Void Теперьточно::MyForm2::butbask_Click(System::Object^ sender, System:
 System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	Basket_ basket; Object_ object; vector<string> vector_items;
-		String^ temp_current_Cell; //работает
+		String^ temp_current_Cell;
 		int ask; object.item();
 		vector_items = object.Print(); 
 		////
@@ -102,7 +102,7 @@ System::Void Теперьточно::MyForm2::Bask_Click(System::Object^ sender, System::Ev
 		}
 		else {
 			object.item();
-			temp_current_Cell = dataGridData->CurrentCell->Value->ToString(); // count
+			temp_current_Cell = dataGridData->CurrentCell->Value->ToString(); 
 			try {
 				ask = Convert::ToInt16(temp_current_Cell);
 				if ((ask > object.GetCount()) || (vector_items[NULL] == "")) { MessageBox::Show("Индекс не принадлежит диапазону", "Упс"); }
@@ -146,7 +146,7 @@ System::Void Теперьточно::MyForm2::button2_Click(System::Object^ sender, System:
 		Task<System::Guid>^ thread = gcnew Task<System::Guid>(gcnew Func<Guid>(temp, &Temp::D));
 		thread->ContinueWith(gcnew Action<Task<Guid>^>(temp, &Temp::B)); // :(
 		thread->Start();
-		// end поток доставки
+		// поток доставки
 		fstream File(FILE_BASKET_NAME, ios::out);
 		DateTime date1 = DateTime::Today;
 		DateTime answer = date1.AddDays(day);
@@ -294,7 +294,7 @@ void Теперьточно::MyForm2::HeaderI()
 	dataGridData->AutoResizeColumn(0);
 }
 
-void Теперьточно::MyForm2::ShowCloth()
+void Теперьточно::MyForm2::ShowCloth()	// отображение ввиде таблицы
 {
 	int temp = 0;
 	Cloth_ cloth;
@@ -310,16 +310,16 @@ void Теперьточно::MyForm2::ShowCloth()
 		if (regex_search(v[i], find_world, regular)) {
 			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
-			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
-			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
-			dataGridData->Rows[temp]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
-			dataGridData->Rows[temp]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
-			dataGridData->Rows[temp]->Cells[4]->Value = Convert_string_To_String(ones_v[i].Brand);
-			dataGridData->Rows[temp]->Cells[5]->Value = Convert_string_To_String(ones_v[i].Model);
-			dataGridData->Rows[temp]->Cells[6]->Value = Convert_string_To_String(ones_v[i].Size);
-			dataGridData->Rows[temp]->Cells[7]->Value = Convert_string_To_String(ones_v[i].Price);
-			dataGridData->Rows[temp]->Cells[8]->Value = Convert_string_To_String(ones_v[i].Color);
-			dataGridData->Rows[temp]->Cells[9]->Value = Convert_string_To_String(ones_v[i].Count)	+ " экз.";
+			dataGridData->Rows[temp]->Cells[NULL]->Value = Convert::ToString(i + 1);
+			dataGridData->Rows[temp]->Cells[En_name::Category]->Value = Convert_string_To_String(ones_v[i].Category);
+			dataGridData->Rows[temp]->Cells[En_name::Type]->Value = Convert_string_To_String(ones_v[i].Type);
+			dataGridData->Rows[temp]->Cells[En_name::Gender]->Value = Convert_string_To_String(ones_v[i].Gender);
+			dataGridData->Rows[temp]->Cells[En_name::Brand]->Value = Convert_string_To_String(ones_v[i].Brand);
+			dataGridData->Rows[temp]->Cells[En_name::Model]->Value = Convert_string_To_String(ones_v[i].Model);
+			dataGridData->Rows[temp]->Cells[En_name::Size]->Value = Convert_string_To_String(ones_v[i].Size) + " RU";
+			dataGridData->Rows[temp]->Cells[En_name::Price]->Value = Convert_string_To_String(ones_v[i].Price);
+			dataGridData->Rows[temp]->Cells[En_name::Color]->Value = Convert_string_To_String(ones_v[i].Color);
+			dataGridData->Rows[temp]->Cells[En_name::Count]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
 			dataGridData->AutoResizeColumn(0);
 			dataGridData->AutoResizeRows();
 			temp++;
@@ -340,16 +340,15 @@ void Теперьточно::MyForm2::ShowBask()
 	{
 		dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 		dataGridData->Columns[0]->HeaderCell->Value = "id";
-		dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1) + ".";
-		dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
-		dataGridData->Rows[temp]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
-		dataGridData->Rows[temp]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
-		dataGridData->Rows[temp]->Cells[4]->Value = Convert_string_To_String(ones_v[i].Brand);
-		dataGridData->Rows[temp]->Cells[5]->Value = Convert_string_To_String(ones_v[i].Model);
-		dataGridData->Rows[temp]->Cells[6]->Value = Convert_string_To_String(ones_v[i].Size);
-		dataGridData->Rows[temp]->Cells[7]->Value = Convert_string_To_String(ones_v[i].Price);
-		dataGridData->Rows[temp]->Cells[8]->Value = Convert_string_To_String(ones_v[i].Color);
-		/*dataGridData->Rows[temp]->Cells[9]->Value = Convert_string_To_String(ones_v[i].Count);*/
+		dataGridData->Rows[temp]->Cells[NULL]->Value = Convert::ToString(i + 1);
+		dataGridData->Rows[temp]->Cells[En_name::Category]->Value = Convert_string_To_String(ones_v[i].Category);
+		dataGridData->Rows[temp]->Cells[En_name::Type]->Value = Convert_string_To_String(ones_v[i].Type);
+		dataGridData->Rows[temp]->Cells[En_name::Gender]->Value = Convert_string_To_String(ones_v[i].Gender);
+		dataGridData->Rows[temp]->Cells[En_name::Brand]->Value = Convert_string_To_String(ones_v[i].Brand);
+		dataGridData->Rows[temp]->Cells[En_name::Model]->Value = Convert_string_To_String(ones_v[i].Model);
+		dataGridData->Rows[temp]->Cells[En_name::Size]->Value = Convert_string_To_String(ones_v[i].Size) + " RU";
+		dataGridData->Rows[temp]->Cells[En_name::Price]->Value = Convert_string_To_String(ones_v[i].Price);
+		dataGridData->Rows[temp]->Cells[En_name::Color]->Value = Convert_string_To_String(ones_v[i].Color);
 		dataGridData->AutoResizeColumn(0);
 		dataGridData->AutoResizeRows();
 		temp++;
@@ -371,16 +370,16 @@ void Теперьточно::MyForm2::ShowPants()
 		if (regex_search(v[i], find_world, regular)) {
 			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
-			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
-			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
-			dataGridData->Rows[temp]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
-			dataGridData->Rows[temp]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
-			dataGridData->Rows[temp]->Cells[4]->Value = Convert_string_To_String(ones_v[i].Brand);
-			dataGridData->Rows[temp]->Cells[5]->Value = Convert_string_To_String(ones_v[i].Model);
-			dataGridData->Rows[temp]->Cells[6]->Value = Convert_string_To_String(ones_v[i].Size);
-			dataGridData->Rows[temp]->Cells[7]->Value = Convert_string_To_String(ones_v[i].Price);
-			dataGridData->Rows[temp]->Cells[8]->Value = Convert_string_To_String(ones_v[i].Color);
-			dataGridData->Rows[temp]->Cells[9]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
+			dataGridData->Rows[temp]->Cells[NULL]->Value = Convert::ToString(i + 1);
+			dataGridData->Rows[temp]->Cells[En_name::Category]->Value = Convert_string_To_String(ones_v[i].Category);
+			dataGridData->Rows[temp]->Cells[En_name::Type]->Value = Convert_string_To_String(ones_v[i].Type);
+			dataGridData->Rows[temp]->Cells[En_name::Gender]->Value = Convert_string_To_String(ones_v[i].Gender);
+			dataGridData->Rows[temp]->Cells[En_name::Brand]->Value = Convert_string_To_String(ones_v[i].Brand);
+			dataGridData->Rows[temp]->Cells[En_name::Model]->Value = Convert_string_To_String(ones_v[i].Model);
+			dataGridData->Rows[temp]->Cells[En_name::Size]->Value = Convert_string_To_String(ones_v[i].Size) + " RU";
+			dataGridData->Rows[temp]->Cells[En_name::Price]->Value = Convert_string_To_String(ones_v[i].Price);
+			dataGridData->Rows[temp]->Cells[En_name::Color]->Value = Convert_string_To_String(ones_v[i].Color);
+			dataGridData->Rows[temp]->Cells[En_name::Count]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
 			dataGridData->AutoResizeColumn(0);
 			dataGridData->AutoResizeRows();
 			temp++;
@@ -407,16 +406,16 @@ void Теперьточно::MyForm2::ShowShoes()
 		if (regex_search(v[i], find_world, regular)) {
 			dataGridData->Rows[temp]->HeaderCell->Value = "=>";
 			dataGridData->Columns[0]->HeaderCell->Value = "id";
-			dataGridData->Rows[temp]->Cells[0]->Value = Convert::ToString(i + 1);
-			dataGridData->Rows[temp]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
-			dataGridData->Rows[temp]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
-			dataGridData->Rows[temp]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
-			dataGridData->Rows[temp]->Cells[4]->Value = Convert_string_To_String(ones_v[i].Brand);
-			dataGridData->Rows[temp]->Cells[5]->Value = Convert_string_To_String(ones_v[i].Model);
-			dataGridData->Rows[temp]->Cells[6]->Value = Convert_string_To_String(ones_v[i].Size);
-			dataGridData->Rows[temp]->Cells[7]->Value = Convert_string_To_String(ones_v[i].Price);
-			dataGridData->Rows[temp]->Cells[8]->Value = Convert_string_To_String(ones_v[i].Color);
-			dataGridData->Rows[temp]->Cells[9]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
+			dataGridData->Rows[temp]->Cells[NULL]->Value = Convert::ToString(i + 1);
+			dataGridData->Rows[temp]->Cells[En_name::Category]->Value = Convert_string_To_String(ones_v[i].Category);
+			dataGridData->Rows[temp]->Cells[En_name::Type]->Value = Convert_string_To_String(ones_v[i].Type);
+			dataGridData->Rows[temp]->Cells[En_name::Gender]->Value = Convert_string_To_String(ones_v[i].Gender);
+			dataGridData->Rows[temp]->Cells[En_name::Brand]->Value = Convert_string_To_String(ones_v[i].Brand);
+			dataGridData->Rows[temp]->Cells[En_name::Model]->Value = Convert_string_To_String(ones_v[i].Model);
+			dataGridData->Rows[temp]->Cells[En_name::Size]->Value = Convert_string_To_String(ones_v[i].Size) + " RU";
+			dataGridData->Rows[temp]->Cells[En_name::Price]->Value = Convert_string_To_String(ones_v[i].Price);
+			dataGridData->Rows[temp]->Cells[En_name::Color]->Value = Convert_string_To_String(ones_v[i].Color);
+			dataGridData->Rows[temp]->Cells[En_name::Count]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
 			dataGridData->AutoResizeColumn(0);
 			dataGridData->AutoResizeRows();
 			temp++;
@@ -436,20 +435,17 @@ void Теперьточно::MyForm2::Show()
 	{
 		dataGridData->Rows[i]->HeaderCell->Value = "=>";
 		dataGridData->Columns[0]->HeaderCell->Value = "id";
-		dataGridData->Rows[i]->Cells[0]->Value = Convert::ToString(i + 1);
-		dataGridData->Rows[i]->Cells[1]->Value = Convert_string_To_String(ones_v[i].Category);
-		dataGridData->Rows[i]->Cells[2]->Value = Convert_string_To_String(ones_v[i].Type);
-		dataGridData->Rows[i]->Cells[3]->Value = Convert_string_To_String(ones_v[i].Gender);
-		dataGridData->Rows[i]->Cells[4]->Value = Convert_string_To_String(ones_v[i].Brand);
-		dataGridData->Rows[i]->Cells[5]->Value = Convert_string_To_String(ones_v[i].Model);
-		dataGridData->Rows[i]->Cells[6]->Value = Convert_string_To_String(ones_v[i].Size);
-		dataGridData->Rows[i]->Cells[7]->Value = Convert_string_To_String(ones_v[i].Price);
-		dataGridData->Rows[i]->Cells[8]->Value = Convert_string_To_String(ones_v[i].Color);
-		dataGridData->Rows[i]->Cells[9]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
+		dataGridData->Rows[i]->Cells[NULL]->Value = Convert::ToString(i + 1);
+		dataGridData->Rows[i]->Cells[En_name::Category]->Value = Convert_string_To_String(ones_v[i].Category);
+		dataGridData->Rows[i]->Cells[En_name::Type]->Value = Convert_string_To_String(ones_v[i].Type);
+		dataGridData->Rows[i]->Cells[En_name::Gender]->Value = Convert_string_To_String(ones_v[i].Gender);
+		dataGridData->Rows[i]->Cells[En_name::Brand]->Value = Convert_string_To_String(ones_v[i].Brand);
+		dataGridData->Rows[i]->Cells[En_name::Model]->Value = Convert_string_To_String(ones_v[i].Model);
+		dataGridData->Rows[i]->Cells[En_name::Size]->Value = Convert_string_To_String(ones_v[i].Size) + " RU";
+		dataGridData->Rows[i]->Cells[En_name::Price]->Value = Convert_string_To_String(ones_v[i].Price);
+		dataGridData->Rows[i]->Cells[En_name::Color]->Value = Convert_string_To_String(ones_v[i].Color);
+		dataGridData->Rows[i]->Cells[En_name::Count]->Value = Convert_string_To_String(ones_v[i].Count) + " экз.";
 		dataGridData->AutoResizeColumn(0);
 		dataGridData->AutoResizeRows();
 	}
 }
-
-// Работало 
-//dataGridData->Rows[i]->Cells[1]->Value = Convert_string_To_String(v[i]);

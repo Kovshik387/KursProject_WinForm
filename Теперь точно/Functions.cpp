@@ -4,34 +4,6 @@
 
 using namespace System;
 
-void DataAll()
-{
-	int ask = 0; // рофл чё
-	Object_ object;
-	object.item(); object.Print();
-}
-
-void DataShoes()
-{
-	int ask = 0;
-	Object_ object;
-	Shoes_ shoes; shoes.Print();
-}
-
-void DataPants()
-{
-	int ask = 0;
-	Object_ object;
-	Pants_ pants; pants.Print();
-}
-
-void DataCloth()
-{
-	int ask = 0;
-	Object_ object;
-	Cloth_ cloth; cloth.Print();
-}
-
 void SetData()	// Функция возвращение данных в исходный вид
 {
 	ifstream File_Default(FILE_MAIN_NAME);
@@ -61,8 +33,8 @@ void ReGroupData()
 	ofstream File_New(FILE_NAME, ios_base::trunc); // открытие файла в режиме "запись в конец"
 	if (!File_New.is_open()) throw exception("File read error"); // ошибка открытия файла
 	for (int i = 0; i < regroup.size(); i++) {  // запись добавленного предмета в конец "корзины"
-		if (i == regroup.size() - 1) File_New << regroup[i]; // костыль
-		else File_New << regroup[i] << endl;			   //
+		if (i == regroup.size() - 1) File_New << regroup[i];
+		else File_New << regroup[i] << endl;			  
 	}
 }
 
@@ -74,15 +46,6 @@ std::string Stos(System::String^ s) // из String в std::string
 	std::string os(chars);
 	return os;
 }
-
-//void travel()
-//{
-//	srand(time(NULL));
-//	User user;
-//	int temp_day;
-//	temp_day = 1 + rand() % 15;
-//	user.Purchase();
-//}
 
 System::String^ Convert_string_To_String(std::string& os) // из std::string в String
 {
