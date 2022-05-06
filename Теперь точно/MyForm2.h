@@ -22,12 +22,8 @@ namespace Теперьточно {
 	public:
 		MyForm2(void)
 		{
-			this->temp = gcnew Temp();
+			this->temp = gcnew Temp(button2);
 			InitializeComponent();
-			
-			//
-			//TODO: добавьте код конструктора
-			//
 		}
 
 	protected:
@@ -282,6 +278,7 @@ private: System::Void Pants_Click(System::Object^ sender, System::EventArgs^ e);
 private: System::Void Cloth_Click(System::Object^ sender, System::EventArgs^ e);
 private: void Show();
 private: void HeaderA();
+	   private: void HeaderA_busk();
 private: void HeaderB();
 private: void HeaderC();
 	   private: void HeaderD();

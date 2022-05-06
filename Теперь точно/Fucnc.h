@@ -1,5 +1,7 @@
 #pragma once
 
+#include "MyForm2.h"
+
 using namespace System;
 using namespace System::Threading;
 using namespace System::Windows::Forms;
@@ -7,12 +9,13 @@ using namespace System::Threading::Tasks;
 
 public ref struct Temp
 {
+	Button^ zhizn;
+
 	property System::Int32 value;
 	property System::Guid order_id;
 
-	Guid D(void)
+	Guid Check_goods(void)//D
 	{
-		Console::WriteLine("Start");
 		while (value > 0)
 		{
 			value--;
@@ -21,12 +24,12 @@ public ref struct Temp
 		return this->order_id;
 	}
 
-	void B(Task<Guid>^ temp)
+	void Order_goods(Task<Guid>^ temp)//B
 	{
+		zhizn->Enabled = true;
 		MessageBox::Show("Заказ " + temp->Result + "\nПрибыл", "Состояние");
 		this->value = 0;
 		this->order_id = System::Guid::Empty;
 	}
-
-	Temp(System::Void) { value = 0; order_id = System::Guid::Empty; }
+	Temp(Button^ zhizn) { value = 0; order_id = System::Guid::Empty; this->zhizn = zhizn; }
 };
