@@ -39,6 +39,7 @@ namespace Теперьточно {
 	private: System::Windows::Forms::Button^ Admin;
 
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label2;
 	protected:
 
 	private:
@@ -58,13 +59,14 @@ namespace Теперьточно {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->Admin = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::Color::Linen;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Location = System::Drawing::Point(3, 229);
+			this->button1->Location = System::Drawing::Point(3, 205);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(279, 30);
 			this->button1->TabIndex = 0;
@@ -101,12 +103,22 @@ namespace Теперьточно {
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Интернет-Магазин Zamay";
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(138, 249);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(144, 13);
+			this->label2->TabIndex = 3;
+			this->label2->Text = L"Сеть сервисов \"387 - PVO\"";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(284, 261);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->Admin);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
@@ -118,6 +130,7 @@ namespace Теперьточно {
 			this->Text = L"Интернет магазин Zamay";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 #pragma endregion
