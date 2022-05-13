@@ -30,3 +30,18 @@ System::Void Теперьточно::MyForm1::Backkk_Click(System::Object^ sender, System::
     this->Hide();
     
 }
+
+int i = 0;
+
+System::Void Теперьточно::MyForm1::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    int i = 0;
+    if (i == 0) {
+        textBox1->PasswordChar = '\0';
+        i = 1;
+    }
+    else {
+        textBox1->PasswordChar = '*';
+        i = 0;
+    }
+}

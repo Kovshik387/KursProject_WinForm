@@ -41,6 +41,7 @@ namespace Теперьточно {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
 	private: System::Windows::Forms::Button^ Backkk;
+	private: System::Windows::Forms::Button^ button2;
 	private: System::ComponentModel::IContainer^ components;
 	protected:
 
@@ -65,13 +66,14 @@ namespace Теперьточно {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
 			this->Backkk = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
 			// 
 			this->textBox1->Cursor = System::Windows::Forms::Cursors::Cross;
 			this->textBox1->HideSelection = false;
-			this->textBox1->Location = System::Drawing::Point(12, 39);
+			this->textBox1->Location = System::Drawing::Point(12, 47);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(111, 20);
@@ -97,7 +99,7 @@ namespace Теперьточно {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(129, 37);
+			this->button1->Location = System::Drawing::Point(93, 82);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 2;
@@ -115,21 +117,35 @@ namespace Теперьточно {
 			this->Backkk->UseVisualStyleBackColor = true;
 			this->Backkk->Click += gcnew System::EventHandler(this, &MyForm1::Backkk_Click);
 			// 
+			// button2
+			// 
+			this->button2->AutoSize = true;
+			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Location = System::Drawing::Point(146, 47);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(22, 20);
+			this->button2->TabIndex = 4;
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm1::button2_Click);
+			// 
 			// MyForm1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Window;
-			this->ClientSize = System::Drawing::Size(250, 117);
+			this->ClientSize = System::Drawing::Size(184, 117);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->Backkk);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
-			this->MaximumSize = System::Drawing::Size(266, 156);
+			this->MaximumSize = System::Drawing::Size(200, 156);
 			this->MinimizeBox = false;
-			this->MinimumSize = System::Drawing::Size(266, 156);
+			this->MinimumSize = System::Drawing::Size(200, 156);
 			this->Name = L"MyForm1";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Авторизация";
@@ -141,5 +157,6 @@ namespace Теперьточно {
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 	private: System::Void Backkk_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

@@ -98,10 +98,7 @@ void Object_::Basket (int id_)
 		if (valueBasket[NULL] == "") {
 			File_Basket << buff;
 		}
-		else
-		{
-			File_Basket << endl << buff;
-		} // запись данных в файл "корзина"
+		else { File_Basket << endl << buff;} // запись данных в файл "корзина"
 		count--; string temp2 = to_string(count); // преоброзование уменьшенного значения в строчный тип
 		this->data[id_].replace(data[id_].size() - 1, data[id_].size(), temp2); // замена в векторе количества товара
 	}
@@ -134,7 +131,6 @@ Shoes_::Shoes_()
 			end = i;
 			temp = false;
 		}
-		
 	}
 }
 
